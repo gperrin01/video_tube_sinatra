@@ -1,6 +1,11 @@
-<h3>What do you want to do to <%= @video['title'] %>? </h3>
+<h3>What do you want to change in <%= @video['title'] %>? </h3>
 
-<form value="  ">
+<form action="/videos/<%= @video['id'] %>" method='post'>
+  <input type='text' name='title' id='title' value="<%= @video['title'] %>" autofocus>
+  <input type='text' name='description' id='description' value="<%= @video['description'] %>" autofocus>
+  <input type='text' name='url' id='url' value="<%= @video['url'] %>" autofocus>
+  <button>Subsitution!</button>
+</form>
   
 
 </form>

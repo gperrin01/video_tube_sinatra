@@ -45,19 +45,24 @@ get '/videos/:id' do
   sql = "select * from videos where id = #{params['id']}"
   @video = run_sql(sql).first
   erb :show
-
 end
 
-get 'videos/:id/edit' do
+get '/videos/:id/edit' do
   sql = "select * from videos where id = #{params['id']}"
-  run_sql(sql).first
+  @video = run_sql(sql).first
   erb :edit
 end
 
 delete '/videos/:id/delete' do 
-  sql = "delete from videos where id = '#{params['id']}'"
+  sql = "delete from videos where id = #{params['id']}"
   run_sql(sql)
   redirect to ('/videos')
+end
+
+get '/videos/today' do
+  # sql = "SELECT * FROM videos"
+  # @videos = run_sql(sql)
+  # erb :today
 end
 
 
