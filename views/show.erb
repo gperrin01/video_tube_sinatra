@@ -1,0 +1,11 @@
+<h3>This is <%= @video['title'] %> </h3>
+<p><%= @video['description'] %> </p>  
+
+<div class="edit-delete">
+  <button><a href="/videos/<%= @video['id'] %>/edit">Edit</a></button>
+  <form action="/videos/<%= @video['id'] %>/delete" method="post">
+    <button name="_method" value="delete"> Off the roster! </button>
+  </form>
+</div>
+
+<iframe width="850" height="480" src="<%= @video['url_embed'] %>"  frameborder="0" allowfullscreen></iframe>

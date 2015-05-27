@@ -37,12 +37,28 @@ end
 post '/videos' do
   url_embed = format_for_embed(params['url'])
   sql = "INSERT INTO videos (title, description, url, url_embed, genre) values ('#{params['title']}', '#{params['description']}', '#{params['url']}', '#{url_embed}', '#{params['genre']}' )"
-  binding.pry
   run_sql(sql)
   redirect to ('/videos')
 end
 
+get '/videos/:id' do
+  sql = "select * from videos where id = #{params['id']}"
+  @video = run_sql(sql).first
+  erb :show
 
+end
+
+get 'videos/:id/edit' do
+  sql = "select * from videos where id = #{params['id']}"
+  run_sql(sql).first
+  erb :edit
+end
+
+delete '/videos/:id/delete' do 
+  sql = "delete from videos where id = '#{params['id']}'"
+  run_sql(sql)
+  redirect to ('/videos')
+end
 
 
 def format_for_embed(url)

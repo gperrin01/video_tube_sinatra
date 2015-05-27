@@ -10,9 +10,18 @@ nav li {
   padding: 0 10px;
 }
 
+/* THE VIDEOS*/
 .main_frame {
   border: 2px solid black;
-  height: 600px;
+  height: 100%;
+  padding-bottom: 40px;
+}
+.video_frame {
+  display: inline-block;
+}
+.edit-delete * {
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .footer {
