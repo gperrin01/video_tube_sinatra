@@ -59,10 +59,10 @@ delete '/videos/:id/delete' do
   redirect to ('/videos')
 end
 
-get '/videos/today' do
+get '/videos/special' do
   # sql = "SELECT * FROM videos"
   # @videos = run_sql(sql)
-  # erb :today
+  erb :special
 end
 
 
