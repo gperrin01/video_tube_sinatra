@@ -53,6 +53,13 @@ get '/videos/:id/edit' do
   erb :edit
 end
 
+post '/videos/:id' do
+  url_embed = format_for_embed(params['url'])
+  sql = "update videos set title = '#{params['title']}', description = '#{params['description']}', url = '#{params['url']}', url_embed = '#{url_embed}'"
+  run_sql(sql)
+  redirect to ("/videos/#{params['id']}")
+end
+
 delete '/videos/:id/delete' do 
   sql = "delete from videos where id = #{params['id']}"
   run_sql(sql)
